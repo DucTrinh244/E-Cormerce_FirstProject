@@ -21,3 +21,4 @@ Route::get('/trang-chu', [HomeController::class, 'index']);
 
 // BackEnd
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'showdashboard']);
