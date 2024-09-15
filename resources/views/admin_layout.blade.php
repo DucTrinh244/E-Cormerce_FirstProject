@@ -61,13 +61,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="{{asset('images/2.png')}}">
-                            <span class="username">Zone Dev</span>
+                            <span class="username">
+                                <?php
+
+                                use Illuminate\Support\Facades\Session;
+
+                                $name = Session::get('admin_name');
+                                if ($name) {
+                                    echo $name;
+                                }
+                                ?>
+                            </span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Thông tin</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                            <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
