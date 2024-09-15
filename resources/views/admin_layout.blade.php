@@ -184,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <section id="main-content">
             <section class="wrapper">
 
-                <h3>CHÀO MỪNG ĐẾN VỚI ADIM</h3>
+                @yield('content_admin')
             </section>
             <!-- footer -->
             <div class="footer">

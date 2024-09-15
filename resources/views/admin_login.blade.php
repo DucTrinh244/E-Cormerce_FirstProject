@@ -41,15 +41,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="log-w3">
         <div class="w3layouts-main">
             <h2>Đăng ký ngay</h2>
-            <form action="#" method="post">
-                <input type="email" class="ggg" name="Email" placeholder="E-MAIL" required="">
-                <input type="password" class="ggg" name="Password" placeholder="PASSWORD" required="">
+            <form action="{{URL::to('/admin-dashboard')}}" method="post">
+                {{csrf_field()}}
+                <input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
+                <input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
                 <span><input type="checkbox" />Nhớ đăng nhập</span>
                 <h6><a href="#">Quên mật khẩu ?</a></h6>
                 <div class="clearfix"></div>
                 <input type="submit" value="Sign In" name="login">
             </form>
-            <p>Bạn chưa có tài khoản ?<a href="registration.html">Tạo tài khoản</a></p>
+            <p>Bạn chưa có tài khoản ?<a href="registration.html">Đăng nhập </a></p>
         </div>
     </div>
     <script src="{{asset('public/BackEnd/js/bootstrap.js')}}"></script>
