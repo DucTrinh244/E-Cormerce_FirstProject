@@ -103,11 +103,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>List Product</span>
+                                <span>DANH MỤC SẢN PHẨM </span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html">Add</a></li>
-                                <li><a href="glyphicon.html">List </a></li>
+                                <li><a href="{{URL::to('/add-category-product')}}">THÊM DANH MỤC SẢN PHẨM </a></li>
+                                <li><a href="{{URL::to('/all-category-product')}}">LIỆT KÊ DANH MỤC SẢN PHẨM </a></li>
                             </ul>
                         </li>
                         <!-- <li>
