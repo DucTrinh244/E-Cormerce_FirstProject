@@ -7,11 +7,23 @@
                 Thêm danh mục sản phẩm
             </header>
             <div class="panel-body">
+                <?php
+
+                use Illuminate\Support\Facades\Session;
+
+                $message = Session::get('message');
+                if ($message) {
+                    echo '<span class="text-alert">' . $message . '</span>';
+                    Session::put('message', null);
+                }
+                ?>
                 <div class="position-center">
-                    <form role="form">
+                    <form role="form" action="{{URL::to('/save-category-product')}}" method="post">
+                        {{csrf_field()}}
+                        <!-- tạo ra 1 token  -->
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên danh mục</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục" name="category_product_name">
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục" name="category_product_name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mô tả danh mục</label>
@@ -20,12 +32,12 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Hiển thị</label>
-                            <select class="form-control input-sm m-bot15">
-                                <option>Ẩn</option>
-                                <option>Hiển thị</option>
+                            <select class="form-control input-sm m-bot15" name="category_product_status">
+                                <option value="0">Ẩn</option>
+                                <option value="1">Hiển thị</option>
                             </select>
                         </div>
-                        <button type="submit" name="add_category_product" class="btn btn-info">Submit</button>
+                        <button type="submit" name="add_category_product" class="btn btn-info">Thêm danh mục</button>
                     </form>
                 </div>
 
@@ -34,4 +46,5 @@
 
     </div>
 </div>
+
 @endsection
