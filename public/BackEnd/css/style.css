@@ -3162,3 +3162,7 @@ span.fa-thumbs-styling.fa.fa-thumbs-up {
 a.active.styling-edit {
     font-size: 20px;
 }
+textarea {
+    resize: none;
+    outline: none;
+  }

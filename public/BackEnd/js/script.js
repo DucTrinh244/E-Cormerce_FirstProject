@@ -93,3 +93,6 @@ $(function(){
     }
 
 });
+document.getElementById("exampleInputPassword1").addEventListener("focus", function() {
+    this.setSelectionRange(0, 0);
+  });
