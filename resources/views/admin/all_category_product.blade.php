@@ -27,6 +27,16 @@
             </div>
         </div>
         <div class="table-responsive">
+            <?php
+
+            use Illuminate\Support\Facades\Session;
+
+            $message = Session::get('message');
+            if ($message) {
+                echo '<span class="text-alert">' . $message . '</span>';
+                Session::put('message', null);
+            }
+            ?>
             <table class="table table-striped b-t b-light">
                 <thead>
                     <tr>
@@ -37,22 +47,35 @@
                         </th>
                         <th>Tên danh mục</th>
                         <th>Hiển thị</th>
-                        <th>Ngày thêm </th>
                         <th style="width:30px;"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($all_category_product as $key =>$cate_pro)
                     <tr>
                         <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                        <td>Đây là tên danh mục sản phẩm </td>
-                        <td><span class="text-ellipsis">Ẩn/Hiển thị</span></td>
-                        <td><span class="text-ellipsis">12/05/2005</span></td>
+                        <td>{{$cate_pro->category_name}} </td>
+                        <td><span class="text-ellipsis">
+                                <?php
+                                if ($cate_pro->category_status == 0) {
+                                ?>
+                                    <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumbs-styling fa fa-thumbs-up"></span></a>
+                                <?php
+                                } else {
+                                ?>
+                                    <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumbs-styling fa fa-thumbs-down"></span></a>
+                                <?php
+                                }
+                                ?>
+                            </span></td>
                         <td>
                             <a href="" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                         </td>
                     </tr>
+                    @endforeach()
                 </tbody>
             </table>
+
         </div>
         <footer class="panel-footer">
             <div class="row">
