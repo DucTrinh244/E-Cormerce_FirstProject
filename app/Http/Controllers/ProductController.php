@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
 
         $cate_product = DB::table('tbl_category_product')->orderby('category_id', 'desc')->get();
-        $brand_product = DB::table('tbl_product')->orderby('brand_id', 'desc')->get();
+        $brand_product = DB::table('tbl_brand')->orderby('brand_id', 'desc')->get();
 
         return view('admin.add_product')
             ->with('cate_product', $cate_product)
@@ -48,10 +48,21 @@ class ProductController extends Controller
         $data['product_status'] = $request->product_status;
 
 
-        $get_image = file('product_image');
+        $get_image = $request->file('product_image');
         if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            // lấy đuôi mở rộng của file
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('public/uploads/product', $new_image);
+            $data['product_image'] = $new_image;
+
+            DB::table('tbl_product')->insert($data);
+            Session::put('message', 'Thêm sản phẩm thành công !');
+            return Redirect::to('add-product');
         }
 
+        $data['product_image'] = '';
         DB::table('tbl_product')->insert($data);
         Session::put('message', 'Thêm sản phẩm thành công !');
         return Redirect::to('add-product');

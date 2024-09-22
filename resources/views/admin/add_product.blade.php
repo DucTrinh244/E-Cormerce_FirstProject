@@ -18,7 +18,8 @@
                 }
                 ?>
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/save-product')}}" method="post">
+                    <!-- // yêu cầu bắt buộc phải cố enctype="multipart/form-data" -->
+                    <form role="form" action="{{URL::to('/save-product')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <!-- tạo ra 1 token  -->
                         <div class="form-group">
