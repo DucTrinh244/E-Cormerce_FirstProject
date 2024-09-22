@@ -28,9 +28,12 @@ Route::get('/logout', [AdminController::class, 'logout']);
 
 //Category Product 
 Route::get('/add-category-product', [CategoryProduct::class, 'Add_category_product']);
+Route::get('/edit-category-product/{category_product_id}', [CategoryProduct::class, 'Edit_category_product']);
+Route::get('/delete-category-product/{category_product_id}', [CategoryProduct::class, 'Delete_category_product']);
 Route::get('/all-category-product', [CategoryProduct::class, 'All_category_product']);
 
 Route::get('/unactive-category-product/{category_product_id}', [CategoryProduct::class, 'unactive_category_product']);
 Route::get('/active-category-product/{category_product_id}', [CategoryProduct::class, 'active_category_product']);
 
 Route::post('/save-category-product', [CategoryProduct::class, 'Save_category_product']);
+Route::post('/update-category-product/{category_product_id}', [CategoryProduct::class, 'Update_category_product']);
