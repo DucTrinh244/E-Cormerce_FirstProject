@@ -45,16 +45,19 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Danh mục </label>
-                            <select class="form-control input-sm m-bot15" name="category_id">
-                                <option value="0">Nam</option>
-                                <option value="1">Nữ</option>
+                            <select class="form-control input-sm m-bot15" name="product_cate">
+                                @foreach($cate_product as $key => $cate)
+                                <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                                @endforeach
+
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Thương hiệu </label>
-                            <select class="form-control input-sm m-bot15" name="brand_id">
-                                <option value="0">Nam</option>
-                                <option value="1">Nữ</option>
+                            <select class="form-control input-sm m-bot15" name="product_brand">
+                                @foreach($brand_product as $key => $brand)
+                                <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">

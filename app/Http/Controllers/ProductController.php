@@ -16,13 +16,19 @@ class ProductController extends Controller
     // show view add brand product 
     public function Add_product()
     {
-        return view('admin.add_product');
+
+        $cate_product = DB::table('tbl_category_product')->orderby('category_id', 'desc')->get();
+        $brand_product = DB::table('tbl_product')->orderby('brand_id', 'desc')->get();
+
+        return view('admin.add_product')
+            ->with('cate_product', $cate_product)
+            ->with('brand_product', $brand_product);
     }
 
     // show all brand product 
     public function All_product()
     {
-        $all_product = DB::table('tbl_brand')->get();
+        $all_product = DB::table('tbl_product')->get();
         $manager_product = view('admin.all_product')->with('all_product', $all_product);
 
         return view('admin_layout')->with('admin.all_product', $manager_product);
@@ -31,32 +37,42 @@ class ProductController extends Controller
     public function Save_product(Request $request)
     {
 
+        // tên cột  ==  tên request lấy dữ liệu 
         $data = array();
         $data['product_name'] = $request->product_name;
+        $data['product_price'] = $request->product_price;
         $data['product_desc'] = $request->product_desc;
+        $data['product_content'] = $request->product_content;
+        $data['category_id'] = $request->product_cate;
+        $data['brand_id'] = $request->product_brand;
         $data['product_status'] = $request->product_status;
 
-        DB::table('tbl_brand')->insert($data);
-        Session::put('message', 'Thêm thương hiệu sản phẩm thành công !');
+
+        $get_image = file('product_image');
+        if ($get_image) {
+        }
+
+        DB::table('tbl_product')->insert($data);
+        Session::put('message', 'Thêm sản phẩm thành công !');
         return Redirect::to('add-product');
     }
 
     //set active and unactive for list brand 
     public function unactive_product($product_id)
     {
-        DB::table('tbl_brand')->where('product_id', $product_id)->update(['product_status' => 1]);
-        Session::put('message', 'Không kích hoạt thương hiệu sản phẩm thành công!');
+        DB::table('tbl_product')->where('product_id', $product_id)->update(['product_status' => 1]);
+        Session::put('message', 'Không kích hoạt sản phẩm thành công!');
         return Redirect::to('all-product');
     }
     public function active_product($product_id)
     {
-        DB::table('tbl_brand')->where('product_id', $product_id)->update(['product_status' => 0]);
-        Session::put('message', 'Kích hoạt thương hiệu sản phẩm thành công!');
+        DB::table('tbl_product')->where('product_id', $product_id)->update(['product_status' => 0]);
+        Session::put('message', 'Kích hoạt sản phẩm thành công!');
         return Redirect::to('all-product');
     }
     public function Edit_product($product_id)
     {
-        $edit_product = DB::table('tbl_brand')->where('product_id', $product_id)->get();
+        $edit_product = DB::table('tbl_product')->where('product_id', $product_id)->get();
         $manager_product = view('admin.edit_product')->with('edit_product', $edit_product);
 
         return view('admin_layout')->with('admin.all_product', $manager_product);
@@ -67,14 +83,14 @@ class ProductController extends Controller
         $data['product_name'] = $request->product_name;
         $data['product_desc'] = $request->product_desc;
 
-        DB::table('tbl_brand')->where('product_id', $product_id)->update($data);
-        Session::put('message', 'Cập nhật thương hiệu thành công');
+        DB::table('tbl_product')->where('product_id', $product_id)->update($data);
+        Session::put('message', 'Cập nhật thành công');
         return Redirect::to('all-product');
     }
     public function Delete_product($product_id)
     {
-        DB::table('tbl_brand')->where('product_id', $product_id)->delete();
-        Session::put('message', 'Xóa thương hiệu sản phẩm thành công ');
+        DB::table('tbl_product')->where('product_id', $product_id)->delete();
+        Session::put('message', 'Xóa sản phẩm thành công ');
         return Redirect::to('all-product');
     }
 }
