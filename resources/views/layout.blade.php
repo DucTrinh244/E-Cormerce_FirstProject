@@ -18,11 +18,11 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="{{('public/FrontEnd/images/ico/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png')}}">
+    <link rel="shortcut icon" href="{{asset('public/FrontEnd/images/ico/favicon.ico')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('public/FrontEnd/images/ico/apple-touch-icon-144-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('public/FrontEnd/images/ico/apple-touch-icon-114-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('public/FrontEnd/images/ico/apple-touch-icon-72-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" href="{{asset('public/FrontEnd/images/ico/apple-touch-icon-57-precomposed.png')}}">
 </head><!--/head-->
 
 <body>
@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="{{URL::to('/trang-chu')}}"><img src="{{('public/FrontEnd/images/logo.png')}}" alt="" /></a>
+                            <a href="{{URL::to('/trang-chu')}}"><img src="{{asset('public/FrontEnd/images/logo.png')}}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -156,8 +156,8 @@
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{('public/FrontEnd/images/girl1.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{('public/FrontEnd/images/pricing.png')}}" class="pricing" alt="" />
+                                    <img src="{{asset('public/FrontEnd/images/girl1.jpg')}}" class="girl img-responsive" alt="" />
+                                    <img src="{{asset('public/FrontEnd/images/pricing.png')}}" class="pricing" alt="" />
                                 </div>
                             </div>
                             <div class="item">
@@ -168,8 +168,8 @@
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{('public/FrontEnd/images/girl2.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{('public/FrontEnd/images/pricing.png')}}" class="pricing" alt="" />
+                                    <img src="{{asset('public/FrontEnd/images/girl2.jpg')}}" class="girl img-responsive" alt="" />
+                                    <img src="{{asset('public/FrontEnd/images/pricing.png')}}" class="pricing" alt="" />
                                 </div>
                             </div>
 
@@ -181,8 +181,8 @@
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{('public/FrontEnd/images/girl3.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{('public/FrontEnd/images/pricing.png')}}" class="pricing" alt="" />
+                                    <img src="{{asset('public/FrontEnd/images/girl3.jpg')}}" class="girl img-responsive" alt="" />
+                                    <img src="{{asset('public/FrontEnd/images/pricing.png')}}" class="pricing" alt="" />
                                 </div>
                             </div>
 
@@ -238,7 +238,7 @@
 
                         <!--shipping-->
                         <!-- <div class="shipping text-center">
-                            <img src="{{('public/FrontEnd/images/shipping.jpg')}}" alt="" />
+                            <img src="{{asset('public/FrontEnd/images/shipping.jpg')}}" alt="" />
                         </div> -->
                         <!--/shipping-->
 
@@ -267,7 +267,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{('public/FrontEnd/images/iframe1.png')}}" alt="" />
+                                        <img src="{{asset('public/FrontEnd/images/iframe1.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -282,7 +282,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{('public/FrontEnd/images/iframe2.png')}}" alt="" />
+                                        <img src="{{asset('public/FrontEnd/images/iframe2.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -297,7 +297,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{('public/FrontEnd/images/iframe3.png')}}" alt="" />
+                                        <img src="{{asset('public/FrontEnd/images/iframe3.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -312,7 +312,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{('public/FrontEnd/images/iframe4.png')}}" alt="" />
+                                        <img src="{{asset('public/FrontEnd/images/iframe4.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -325,7 +325,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <img src="{{('public/FrontEnd/images/map.png')}}" alt="" />
+                            <img src="{{asset('public/FrontEnd/images/map.png')}}" alt="" />
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>
@@ -412,12 +412,12 @@
 
 
 
-    <script src="{{('public/FrontEnd/js/jquery.js')}}"></script>
-    <script src="{{('public/FrontEnd/js/bootstrap.min.js')}}"></script>
-    <script src="{{('public/FrontEnd/js/jquery.scrollUp.min.js')}}"></script>
-    <script src="{{('public/FrontEnd/js/price-range.js')}}"></script>
-    <script src="{{('public/FrontEnd/js/jquery.prettyPhoto.js')}}"></script>
-    <script src="{{('public/FrontEnd/js/main.js')}}"></script>
+    <script src="{{asset('public/FrontEnd/js/jquery.js')}}"></script>
+    <script src="{{asset('public/FrontEnd/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/FrontEnd/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{asset('public/FrontEnd/js/price-range.js')}}"></script>
+    <script src="{{asset('public/FrontEnd/js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{asset('public/FrontEnd/js/main.js')}}"></script>
 </body>
 
 </html>

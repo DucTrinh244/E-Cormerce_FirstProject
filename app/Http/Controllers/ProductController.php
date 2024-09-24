@@ -148,4 +148,42 @@ class ProductController extends Controller
         Session::put('message', 'Xóa sản phẩm thành công ');
         return Redirect::to('all-product');
     }
+    // END ADMIN PAGES
+    public function Detail_product($product_id)
+    {
+
+        $cate_product = DB::table('tbl_category_product')->where('category_status', '0')->orderby('category_id', 'desc')->get();
+        $brand_product = DB::table('tbl_brand')->where('brand_status', '0')->orderby('brand_id', 'desc')->get();
+
+
+        $detail_product = DB::table('tbl_product')
+            ->join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')
+            ->join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id')
+            ->where('tbl_product.product_id', $product_id)
+            ->get();
+
+        // @foreach($detail_product as $key =>$value)
+        // $category_id=$value->category_id;
+
+        // @endforeach
+
+        $category_id = null;
+        if ($detail_product->isNotEmpty()) {
+            $category_id = $detail_product->first()->category_id;
+        }
+
+        $related_product = DB::table('tbl_product')
+            ->join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')
+            ->join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id')
+            ->where('tbl_category_product.category_id', $category_id)
+            ->whereNotIn('tbl_product.product_id', [$product_id])
+            ->get();
+
+        return view('pages.product.show_detail')
+            ->with('category', $cate_product) //List categorys
+            ->with('brand', $brand_product)
+            ->with('detail_product', $detail_product)
+            ->with('related_product', $related_product)
+        ;
+    }
 }
