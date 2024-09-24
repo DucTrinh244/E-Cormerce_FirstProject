@@ -71,3 +71,4 @@ Route::post('/update-product/{product_id}', [ProductController::class, 'Update_p
 
 //Cart
 Route::post('/save-cart', [CartController::class, 'Save_cart']);
+Route::get('/show-cart', [CartController::class, 'show_cart']);

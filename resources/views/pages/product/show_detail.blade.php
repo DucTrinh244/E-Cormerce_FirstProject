@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
 @foreach($detail_product as $key => $value)
+
 <div class="product-details"><!--product-details-->
     <div class="col-sm-5">
         <div class="view-product">
@@ -51,7 +52,7 @@
                     <span>{{'$ '.number_format($value->product_price)}}</span>
                     <label>Số lượng :</label>
                     <input name="qty" type="number" min="1" value="1" />
-                    <input name="productid_hidden" type="hidden" min="1" value="1" value="{{$value->product_id}}" />
+                    <input name="productid_hidden" type="hidden" value="{{$value->product_id}}" />
                     <button type="submit" class="btn btn-fefault cart">
                         <i class="fa fa-shopping-cart"></i>
                         Thêm giỏ hàng
